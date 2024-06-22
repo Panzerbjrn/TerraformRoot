@@ -9,7 +9,7 @@ output "region_map" { value = var.region_map}
 
 output "JoinedValue"  { value = local.JoinedValue }
 
-output "Module_Global" {
-  value = Module.global
-}
+# output "Module_Global" {
+#   value = Module.global
+# }
 
