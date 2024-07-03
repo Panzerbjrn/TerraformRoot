@@ -17,7 +17,7 @@ resource "azurerm_resource_group" "ranged" {
     lower(var.env_data.company.short_name),
     lower(var.env_data.environment_name),
     lower(var.env_data.app.short_name),
-    "module-rg-${each.key}"
+    "foreach_rg-${each.key}"
   ])
   location = var.env_data.location
   tags = var.tags
