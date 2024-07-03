@@ -52,20 +52,20 @@ module "ResourceGroup" {
 # #  subnet         = module.ref_net.subnets.internal
 # }
 
-# resource "azurerm_cognitive_account" "main" {
-#       name = join("-", [
-#     lower(var.env_data.company.short_name),
-#     lower(var.env_data.environment_name),
-#     lower(var.env_data.app.short_name),
-#     "aca"
-#   ])
+resource "azurerm_cognitive_account" "main" {
+  name = join("-", [
+    lower(var.env_data.company.short_name),
+    lower(var.env_data.environment_name),
+    lower(var.env_data.app.short_name),
+    "aca"
+  ])
 
-#   location            = data.azurerm_resource_group.main.location
-# #  resource_group_name = azurerm_resource_group.rg-1.name
-#   resource_group  = data.azurerm_resource_group.main
-#   kind                = "OpenAI"
-#   sku_name            = "S0"
-# }
+  location            = azurerm_resource_group.rg-1.location
+  resource_group_name = azurerm_resource_group.rg-1.name
+  resource_group      = azurerm_resource_group.rg-1
+  kind                = "OpenAI"
+  sku_name            = "S0"
+}
 
 # resource "azurerm_cognitive_deployment" "main" {
 #   name = join("-", [
