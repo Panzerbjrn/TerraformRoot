@@ -32,7 +32,6 @@ module "global" {
   app_short_name     = local.env_data.app.short_name
 }
 
-/*
 module "ResourceGroup" {
   source = "./modules/resource_group"
   
@@ -42,7 +41,6 @@ module "ResourceGroup" {
     tags = var.tags
   }
 }
-*/
 
 ##### Testing 
 ##### Testing AI Service: 
