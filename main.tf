@@ -43,3 +43,48 @@ module "ResourceGroup" {
   }
 }
 */
+
+##### Testing 
+##### Testing AI Service: 
+# module "ai_services" {
+#   source         = "../../modules/ai_services"
+#   env_data       = local.env_data
+#   function       = "ai_test"
+#   resource_group = local.env_data.resource_group
+# #  subnet         = module.ref_net.subnets.internal
+# }
+
+# resource "azurerm_cognitive_account" "main" {
+#       name = join("-", [
+#     lower(var.env_data.company.short_name),
+#     lower(var.env_data.environment_name),
+#     lower(var.env_data.app.short_name),
+#     "aca"
+#   ])
+
+#   location            = data.azurerm_resource_group.main.location
+# #  resource_group_name = azurerm_resource_group.rg-1.name
+#   resource_group  = data.azurerm_resource_group.main
+#   kind                = "OpenAI"
+#   sku_name            = "S0"
+# }
+
+# resource "azurerm_cognitive_deployment" "main" {
+#   name = join("-", [
+#     lower(var.env_data.company.short_name),
+#     lower(var.env_data.environment_name),
+#     lower(var.env_data.app.short_name),
+#     "acd"
+#   ])
+
+#   cognitive_account_id = azurerm_cognitive_account.main.id
+#   model {
+#     format  = "OpenAI"
+#     name    = "text-curie-001"
+#     version = "1"
+#   }
+
+#   scale {
+#     type = "Standard"
+#   }
+# }
