@@ -23,7 +23,6 @@ resource "azurerm_resource_group" "ranged" {
   tags = var.tags
 }
 
-/* 
 module "global" {
   source             = "./modules/_global"
   environment_name   = local.env_data.environment_name
@@ -33,6 +32,7 @@ module "global" {
   app_short_name     = local.env_data.app.short_name
 }
 
+/*
 module "ResourceGroup" {
   source = "./modules/resource_group"
   
