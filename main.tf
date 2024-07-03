@@ -62,7 +62,7 @@ resource "azurerm_cognitive_account" "main" {
 
   location            = azurerm_resource_group.rg-1.location
   resource_group_name = azurerm_resource_group.rg-1.name
-  resource_group      = azurerm_resource_group.rg-1
+#  resource_group      = azurerm_resource_group.rg-1
   kind                = "OpenAI"
   sku_name            = "S0"
 }
