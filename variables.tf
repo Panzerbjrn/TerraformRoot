@@ -8,7 +8,6 @@ variable "region_map" {
     eu = "westeurope"
     us = "centralus"
     sa = "southafricanorth"
-    ae = "uaenorth"
     uk = "uksouth"
   }
 }
