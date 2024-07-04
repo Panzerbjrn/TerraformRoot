@@ -3,9 +3,7 @@ locals {
   env_data = var.env_data
 
   location_map = {
-    australiacentral   = { name = "australiacentral", short_name = "ac1", long_name = "AustraliaCentral" }
     eastus             = { name = "eastus", short_name = "ue1", long_name = "EastUS" }
-    germanywestcentral = { name = "germanywestcentral", short_name = "gcw", long_name = "GermanyWestCentral" }
     northeurope        = { name = "northeurope", short_name = "en1", long_name = "NorthEurope" }
     uksouth            = { name = "uksouth", short_name = "uks", long_name = "UKSouth" }
     westeurope         = { name = "westeurope", short_name = "ew1", long_name = "WestEurope" }
@@ -26,5 +24,4 @@ locals {
     lower(var.env_data.environment_name),
     "jv"
   ])
-
 }

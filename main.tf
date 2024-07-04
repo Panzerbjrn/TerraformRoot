@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "ranged" {
   tags = var.tags
 }
 
-module "global" {
+module "Global" {
   source             = "./modules/_global"
   environment_name   = local.env_data.environment_name
   location           = local.env_data.location_name
@@ -44,14 +44,13 @@ module "ResourceGroup" {
 
 ##### Testing 
 ##### Testing AI Service: 
-module "ai_services_account" {
-  source         = "../../modules/ai_services_account"
+module "AI_Services_Account" {
+  source          = "./modules/ai_services_account"
   env_data       = local.env_data
   function       = "ais_account"
-  resource_group = local.env_data.resource_group
+  resource_group = azurerm_resource_group.rg-1
   kind           = "CognitiveServices"
   sku_name       = "S0"
-#  subnet         = module.ref_net.subnets.internal
 }
 
 resource "azurerm_cognitive_account" "main" {
