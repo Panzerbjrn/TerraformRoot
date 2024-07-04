@@ -32,7 +32,7 @@ module "Global" {
   app_short_name     = local.env_data.app.short_name
 }
 
-module "Resource_Group" {
+module "ResourceGroup" {
   source = "./modules/resource_group"
   
   resource_group = {
