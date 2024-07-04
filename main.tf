@@ -44,13 +44,15 @@ module "ResourceGroup" {
 
 ##### Testing 
 ##### Testing AI Service: 
-# module "ai_services" {
-#   source         = "../../modules/ai_services"
-#   env_data       = local.env_data
-#   function       = "ai_test"
-#   resource_group = local.env_data.resource_group
-# #  subnet         = module.ref_net.subnets.internal
-# }
+module "ai_services_account" {
+  source         = "../../modules/ai_services_account"
+  env_data       = local.env_data
+  function       = "ais_account"
+  resource_group = local.env_data.resource_group
+  kind           = "CognitiveServices"
+  sku_name       = "S0"
+#  subnet         = module.ref_net.subnets.internal
+}
 
 resource "azurerm_cognitive_account" "main" {
   name = join("-", [
