@@ -14,3 +14,4 @@ output "Module_Global" { value = module.Global }
 output "Module_Resource_Group" { value = module.ResourceGroup }
 
 output "Module_AI_Services_Account" { value = module.AI_Services_Account }
+output "Module_AI_Services_Account_Id" { value = module.AI_Services_Account.azurerm_cognitive_account_id }
