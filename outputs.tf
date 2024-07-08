@@ -15,6 +15,6 @@ output "Module_Global" { value = module.Global }
 
 output "Module_AI_Services_Account" {
     value = module.AI_Services_Account
-    sensitive = false
+    sensitive = true
 }
 output "Module_AI_Services_Account_Id" { value = module.AI_Services_Account.id }
