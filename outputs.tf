@@ -17,4 +17,4 @@ output "Module_AI_Services_Account" {
     value = module.AI_Services_Account
     sensitive = false
 }
-output "Module_AI_Services_Account_Id" { value = module.AI_Services_Account.azurerm_cognitive_account_id }
+output "Module_AI_Services_Account_Id" { value = module.AI_Services_Account.id }
