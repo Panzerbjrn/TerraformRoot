@@ -35,7 +35,7 @@ module "Global" {
 }
 
 # module "ResourceGroup" {
-#   source = "./modules/resource_group"
+#   source = "./modules/az_resource_group"
   
 #   resource_group = {
 #     name     = "Demo_Module-${var.env_data.app.short_name}-RG"
@@ -47,7 +47,7 @@ module "Global" {
 ##### Testing 
 ##### Testing AI Service: 
 module "AI_Services_Account" {
-  source          = "./modules/ai_services_account"
+  source          = "./modules/az_ai_services_account"
   env_data       = local.env_data
   function       = "ais_account"
   resource_group = azurerm_resource_group.rg-1
