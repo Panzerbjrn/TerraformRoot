@@ -26,7 +26,7 @@ resource "azurerm_resource_group" "ranged" {
 }
 
 module "Global" {
-  source             = "./modules/_global"
+  source             = "./modules/_maps"
   environment_name   = local.env_data.environment_name
   location           = local.env_data.location_name
   company_short_name = local.env_data.company.short_name
