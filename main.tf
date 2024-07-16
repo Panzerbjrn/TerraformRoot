@@ -68,23 +68,3 @@ resource "azurerm_cognitive_account" "main" {
   kind                = "CognitiveServices"
   sku_name            = "S0"
 }
-
-# resource "azurerm_cognitive_deployment" "main" {
-#   name = join("-", [
-#     lower(var.env_data.company.short_name),
-#     lower(var.env_data.environment_name),
-#     lower(var.env_data.app.short_name),
-#     "acd"
-#   ])
-
-#   cognitive_account_id = azurerm_cognitive_account.main.id
-#   model {
-#     format  = "OpenAI"
-#     name    = "text-curie-001"
-#     version = "1"
-#   }
-
-#   scale {
-#     type = "Standard"
-#   }
-# }
