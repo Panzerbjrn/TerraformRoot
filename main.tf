@@ -34,15 +34,15 @@ module "Global" {
   app_short_name     = local.env_data.app.short_name
 }
 
-# module "ResourceGroup" {
-#   source = "./modules/az_resource_group"
+module "ResourceGroup" {
+  source = "./modules/az_resource_group"
   
-#   resource_group = {
-#     name     = "Demo_Module-${var.env_data.app.short_name}-RG"
-#     location = var.env_data.location
-#     tags = var.tags
-#   }
-# }
+  resource_group = {
+    name     = "Demo_Module-${var.env_data.app.short_name}-RG"
+    location = var.env_data.location
+    tags = var.tags
+  }
+}
 
 ##### Testing 
 ##### Testing AI Service: 
