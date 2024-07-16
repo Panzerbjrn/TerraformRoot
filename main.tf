@@ -65,7 +65,8 @@ resource "azurerm_cognitive_account" "main" {
 
   location            = azurerm_resource_group.rg-1.location
   resource_group_name = azurerm_resource_group.rg-1.name
-  kind                = "CognitiveServices"
+#  kind                = "CognitiveServices"
+  kind                = "Face"
   sku_name            = "S0"
 }
 
