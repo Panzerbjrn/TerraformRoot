@@ -68,3 +68,4 @@ resource "azurerm_cognitive_account" "main" {
   kind                = "CognitiveServices"
   sku_name            = "S0"
 }
+
