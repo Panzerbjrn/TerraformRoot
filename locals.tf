@@ -1,5 +1,5 @@
 locals {
-
+  tags = var.tags
   env_data = var.env_data
 
   location_map = {
