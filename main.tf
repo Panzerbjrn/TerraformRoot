@@ -72,7 +72,7 @@ resource "azurerm_cognitive_account" "main" {
 ##### Testing 
 ##### Testing WebApp Windows:
 module "webapp_windows" {
-  source = "../../modules/az_webapp_windows"
+  source = "./modules/az_webapp_windows"
   env_data = local.env_data
   resource_group = local.resource_group
   tags           = local.tags
