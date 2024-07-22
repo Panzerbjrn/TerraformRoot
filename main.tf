@@ -47,12 +47,13 @@ module "ResourceGroup" {
 ##### Testing 
 ##### Testing AI Service: 
 module "AI_Services_Account" {
-  source          = "./modules/az_ai_services_account"
-  env_data       = local.env_data
-  function       = "ais_account"
-  resource_group = azurerm_resource_group.rg-1
-  kind           = "CognitiveServices"
-  sku_name       = "S0"
+  source                    = "./modules/az_ai_services_account"
+  env_data                  = local.env_data
+  function                  = "ais_account"
+  resource_group            = azurerm_resource_group.rg-1
+  kind                      = "CognitiveServices"
+  sku_name                  = "S0"
+#  purge_protection_enabled = false
 }
 
 resource "azurerm_cognitive_account" "main" {
