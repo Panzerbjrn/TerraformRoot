@@ -32,6 +32,7 @@ resource "azurerm_role_assignment" "admin_role" {
   principal_id         = var.sp_oid
 }
 
+
 module "Global" {
   source             = "./modules/_global"
   environment_name   = local.env_data.environment_name
