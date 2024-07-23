@@ -49,7 +49,7 @@ module "ResourceGroup" {
 # module "AI_Services_Account" {
 #   source                    = "./modules/az_ai_services_account"
 #   env_data                  = local.env_data
-#   function                  = "ais_account"
+#   function                  = "aisa"
 #   resource_group            = azurerm_resource_group.rg-1
 #   kind                      = "CognitiveServices"
 #   sku_name                  = "S0"
