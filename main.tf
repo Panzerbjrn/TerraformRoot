@@ -26,6 +26,7 @@ resource "azurerm_resource_group" "ranged" {
 }
 
 # Grant KV admin at RG
+#fdc30c66-3a57-4ed3-b0d9-0c13b3979d61
 resource "azurerm_role_assignment" "admin_role" {
   scope                = azurerm_resource_group.rg-1.id
   role_definition_name = "Key Vault Administrator"
