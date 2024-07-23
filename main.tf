@@ -84,7 +84,7 @@ module "webapp_windows" {
 module "webapp_linux" {
   source = "./modules/az_webapp_linux"
   env_data = local.env_data
-  resource_group = local.resource_group
+  resource_group = azurerm_resource_group.rg-1
   sku_name       = "P1v2"
   tags           = local.tags
 }
