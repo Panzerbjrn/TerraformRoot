@@ -30,7 +30,7 @@ resource "azurerm_resource_group" "ranged" {
 resource "azurerm_role_assignment" "admin_role" {
   scope                = azurerm_resource_group.rg-1.id
   role_definition_name = "Key Vault Administrator"
-  principal_id         = var.sp_oid
+  principal_id         = "7996faa7-fcec-43de-8494-4609de7e4d0d"
 }
 
 
