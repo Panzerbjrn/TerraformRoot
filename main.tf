@@ -82,7 +82,7 @@ module "webapp_windows" {
 
 ##### Testing WebApp Linux: 
 module "webapp_linux" {
-  source = "../../modules/az_webapp_linux"
+  source = "./modules/az_webapp_linux"
   env_data = local.env_data
   resource_group = local.resource_group
   sku_name       = "P1v2"
