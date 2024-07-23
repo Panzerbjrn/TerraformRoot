@@ -1,5 +1,6 @@
 #Set on command line:
 variable "region" { type = string }
+variable "sp_oid" { type = string }
 
 #Other Vars
 variable "region_map" {
@@ -27,3 +28,4 @@ variable "range" {
   type        = number
   default     = 2
 }
+
