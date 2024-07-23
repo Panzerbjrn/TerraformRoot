@@ -25,6 +25,13 @@ resource "azurerm_resource_group" "ranged" {
   tags = var.tags
 }
 
+# Grant KV admin at RG
+resource "azurerm_role_assignment" "admin_role" {
+  scope                = azurerm_resource_group.rg-1
+  role_definition_name = "Key Vault Administrator"
+  principal_id         = var.sp_oid
+}
+
 module "Global" {
   source             = "./modules/_global"
   environment_name   = local.env_data.environment_name
