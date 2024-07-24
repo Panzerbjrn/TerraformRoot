@@ -5,6 +5,7 @@ output "JoinedValue"  { value = local.JoinedValue }
 #     sensitive = true
 # }
 # output "Module_AI_Services_Account_Id" { value = module.AI_Services_Account.id }
+# output "Module_Resource_Group" { value = module.ResourceGroup }
 
 output "Module_Global" { value = module.Global }
 
@@ -23,5 +24,4 @@ output "var_env_data" { value = var.env_data}
 output "var_region_map" { value = var.region_map}
 output "var_tags" { value = var.tags}
 
-#output "var_sp_oid" { value = var.sp_oid}
-#output "Module_Resource_Group" { value = module.ResourceGroup }
+output "var_sp_oid" { value = var.sp_oid}
