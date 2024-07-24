@@ -21,6 +21,7 @@ output "resource_group_ranged" { value = azurerm_resource_group.ranged }
 
 output "var_env_data" { value = var.env_data}
 output "var_region_map" { value = var.region_map}
+output "var_sp_oid" { value = var.sp_oid}
 output "var_tags" { value = var.tags}
 
 
