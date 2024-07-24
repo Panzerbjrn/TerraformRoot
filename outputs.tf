@@ -5,7 +5,7 @@ output "JoinedValue"  { value = local.JoinedValue }
 #     sensitive = true
 # }
 # output "Module_AI_Services_Account_Id" { value = module.AI_Services_Account.id }
-# output "Module_Resource_Group" { value = module.ResourceGroup }
+output "Module_Resource_Group" { value = module.ResourceGroup }
 
 output "Module_Global" { value = module.Global }
 
