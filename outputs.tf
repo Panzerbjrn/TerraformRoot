@@ -26,5 +26,3 @@ output "var_tags" { value = var.tags}
 
 
 #output "Module_Resource_Group" { value = module.ResourceGroup }
-
-
