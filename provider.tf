@@ -11,6 +11,23 @@ provider "azurerm" {
   # The "feature" block is required for AzureRM provider 2.x. #
   ## If you're using version 1.x, the "features" block is not allowed. ##
   features {
+    cognitive_account {
+      purge_soft_delete_on_destroy = true
+    }
+
+    key_vault {
+      purge_soft_delete_on_destroy    = true
+      recover_soft_deleted_key_vaults = true
+    }
+
+    resource_group {
+      prevent_deletion_if_contains_resources = false
+    }
+
+    subscription {
+      prevent_cancellation_on_destroy = false
+    }
+
     # api_management {
     #   purge_soft_delete_on_destroy = true
     #   recover_soft_deleted         = true
@@ -24,15 +41,6 @@ provider "azurerm" {
     # application_insights {
     #   disable_generated_rule = false
     # }
-
-    cognitive_account {
-      purge_soft_delete_on_destroy = true
-    }
-
-    key_vault {
-      purge_soft_delete_on_destroy    = true
-      recover_soft_deleted_key_vaults = true
-    }
 
     # log_analytics_workspace {
     #   permanently_delete_on_destroy = true
@@ -55,16 +63,8 @@ provider "azurerm" {
     #   purge_protected_items_from_vault_on_destroy        = true
     # }
 
-    # resource_group {
-    #   prevent_deletion_if_contains_resources = true
-    # }
-
     # recovery_services_vault {
     #   recover_soft_deleted_backup_protected_vm = true
-    # }
-
-    # subscription {
-    #   prevent_cancellation_on_destroy = false
     # }
 
     # template_deployment {
