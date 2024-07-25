@@ -82,6 +82,6 @@ provider "azurerm" {
     #   force_delete                  = false
     #   roll_instances_when_required  = true
     #   scale_to_zero_before_deletion = true
-    }
+    #}
   }
 }
