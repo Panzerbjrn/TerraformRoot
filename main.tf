@@ -69,7 +69,7 @@ resource "azurerm_cognitive_account" "main" {
     lower(var.env_data.company.short_name),
     lower(var.env_data.environment_name),
     lower(var.env_data.app.short_name),
-    "aca"
+    "acaa"
   ])
 
   location            = azurerm_resource_group.rg-1.location

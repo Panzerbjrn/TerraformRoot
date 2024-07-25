@@ -10,5 +10,9 @@ provider "aws" { region = "eu-west-2" }
 provider "azurerm" {
   # The "feature" block is required for AzureRM provider 2.x. #
   ## If you're using version 1.x, the "features" block is not allowed. ##
-  features {}
+  features {
+    cognitive_account {
+      purge_soft_delete_on_destroy = true
+    }
+  }
 }
