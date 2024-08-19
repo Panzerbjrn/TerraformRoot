@@ -44,5 +44,7 @@ $Dirs = @("Demo_Terraform-GitHub-Actions","Demo_Terraform-Local","Demo_Terraform
 $Dirs | ForEach-Object {Robocopy $(Join-Path -Path $RootDir -ChildPath "TerraformModularity")  $(Join-Path -Path $RootDir -ChildPath $_ -AdditionalChildPath modules)  *.tf /s /mir /mt }
 $Dirs | ForEach-Object {Robocopy $(Join-Path -Path $RootDir -ChildPath "TerraformRoot")  $(Join-Path -Path $RootDir -ChildPath $_ )  *.tf /mt }
 
-Update-GitHub -Fetch -All -Verbose -BaseDir $RootDir
-Update-GitHub -All -Push -CommitMessage "Refreshing" -Verbose -BaseDir $RootDir
+GCI $RootDir -Directory | Where-Object {$_.Name -match "Terraform"} | ForEach-Object {
+	Update-GitHub -Fetch -Verbose -BaseDir $RootDir -Basename $_.BaseName
+	Update-GitHub -Push -CommitMessage "Refreshing" -Verbose -BaseDir $RootDir -Basename $_.BaseName
+}
