@@ -31,6 +31,7 @@ $BaseDirs | ForEach-Object {
 ###################################################
 ###################################################
 
+#sleep 60
 #NewTFPullFetch
 #NewTFFetchPull
 git config --global user.name "Lars.Panzerbjrn"
@@ -39,7 +40,7 @@ git config --global user.email "lars@panzerbjrn.eu"
 IF($ENV:ComputerName -eq "SED-3JHKX14"){$RootDir = "C:\ReposLPDemo";$BaseDir = "ReposLPDemo"}
 ELSE{$RootDir = "C:\Dropbox\GitHub.Terraform";$BaseDir = "GitHub.Terraform"}
 
-$Dirs = @("Demo_Terraform-GitHub-Actions","Demo_Terraform-Local","TerraformAZDOCLI")
+$Dirs = @("Demo_Terraform-GitHub-Actions","Demo_Terraform-Local","Demo_Terraform-AzureDevOps")
 $Dirs | ForEach-Object {Robocopy $(Join-Path -Path $RootDir -ChildPath "TerraformModularity")  $(Join-Path -Path $RootDir -ChildPath $_ -AdditionalChildPath modules)  *.tf /s /mir /mt }
 $Dirs | ForEach-Object {Robocopy $(Join-Path -Path $RootDir -ChildPath "TerraformRoot")  $(Join-Path -Path $RootDir -ChildPath $_ )  *.tf /mt }
 
