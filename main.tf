@@ -44,7 +44,7 @@ module "Global" {
 
 module "ResourceGroup" {
   source = "./modules/az_resource_group"
-  
+
   resource_group = {
     name     = "Demo_Module-${var.env_data.app.short_name}-RG"
     location = var.env_data.location
@@ -52,51 +52,51 @@ module "ResourceGroup" {
   }
 }
 
-##### Testing 
-##### Testing AI Service: 
-module "AI_Services_Account" {
-  source                    = "./modules/az_ai_services_account"
-  env_data                  = local.env_data
-  function                  = "aisa"
-  resource_group            = azurerm_resource_group.rg-1
-  kind                      = "CognitiveServices"
-  sku_name                  = "S0"
-  purge_protection_enabled  = false
-  sp_oid                    = var.sp_oid
-}
+##### Testing
+##### Testing AI Service:
+# module "AI_Services_Account" {
+#   source                    = "./modules/az_ai_services_account"
+#   env_data                  = local.env_data
+#   function                  = "aisa"
+#   resource_group            = azurerm_resource_group.rg-1
+#   kind                      = "CognitiveServices"
+#   sku_name                  = "S0"
+#   purge_protection_enabled  = false
+#   sp_oid                    = var.sp_oid
+# }
 
-resource "azurerm_cognitive_account" "main" {
-  name = join("-", [
-    lower(var.env_data.company.short_name),
-    lower(var.env_data.environment_name),
-    lower(var.env_data.app.short_name),
-    "acaa"
-  ])
+# resource "azurerm_cognitive_account" "main" {
+#   name = join("-", [
+#     lower(var.env_data.company.short_name),
+#     lower(var.env_data.environment_name),
+#     lower(var.env_data.app.short_name),
+#     "acaa"
+#   ])
 
-  location            = azurerm_resource_group.rg-1.location
-  resource_group_name = azurerm_resource_group.rg-1.name
-  kind                = "CognitiveServices"
-  sku_name            = "S0"
-}
+#   location            = azurerm_resource_group.rg-1.location
+#   resource_group_name = azurerm_resource_group.rg-1.name
+#   kind                = "CognitiveServices"
+#   sku_name            = "S0"
+# }
 
-##### Testing 
+##### Testing
 ##### Testing WebApp Windows:
-module "webapp_windows" {
-  source         = "./modules/az_webapp_windows"
-  env_data       = local.env_data
-  resource_group = azurerm_resource_group.rg-1
-  sku_name       = "F1"
-  tags           = local.tags
-}
+# module "webapp_windows" {
+#   source         = "./modules/az_webapp_windows"
+#   env_data       = local.env_data
+#   resource_group = azurerm_resource_group.rg-1
+#   sku_name       = "F1"
+#   tags           = local.tags
+# }
 
-##### Testing WebApp Linux: 
-module "webapp_linux" {
-  source = "./modules/az_webapp_linux"
-  env_data = local.env_data
-  resource_group = azurerm_resource_group.rg-1
-  sku_name       = "F1"
-  tags           = local.tags
-}
+##### Testing WebApp Linux:
+# module "webapp_linux" {
+#   source = "./modules/az_webapp_linux"
+#   env_data = local.env_data
+#   resource_group = azurerm_resource_group.rg-1
+#   sku_name       = "F1"
+#   tags           = local.tags
+# }
 
 # resource "azurerm_resource_group" "example" {
 #   name     = "example-resources"
