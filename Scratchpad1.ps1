@@ -1,5 +1,5 @@
 $RootDir = "C:\Dropbox\GitHub.Terraform"
-$Dirs = @("Demo_Terraform-GitHub-Actions","Demo_Terraform-Local","TerraformAZDOCLI")
+$Dirs = @("Demo_Terraform-GitHub-Actions","Demo_Terraform-AzureDevops","Demo_Terraform-Local","TerraformAZDOCLI")
 #NewModules
 $Dirs | ForEach-Object {Robocopy C:\Dropbox\GitHub.Terraform\TerraformModularity  $(Join-Path -Path $RootDir -ChildPath $_ -AdditionalChildPath modules)  *.tf /s /mir /mt }
 $Dirs | ForEach-Object {Robocopy C:\Dropbox\GitHub.Terraform\TerraformRoot\  $(Join-Path -Path $RootDir -ChildPath $_ )  *.tf /mt }

@@ -1,4 +1,4 @@
-output "JoinedValue"  { value = local.JoinedValue }
+output "JoinedValue" { value = local.JoinedValue }
 
 # output "Module_AI_Services_Account" {
 #     value = module.AI_Services_Account
@@ -20,8 +20,8 @@ output "resource_group_1" { value = azurerm_resource_group.rg-1 }
 output "resource_group_ranged" { value = azurerm_resource_group.ranged }
 
 
-output "var_env_data" { value = var.env_data}
-output "var_region_map" { value = var.region_map}
-output "var_tags" { value = var.tags}
+output "var_env_data" { value = var.env_data }
+output "var_region_map" { value = var.region_map }
+output "var_tags" { value = var.tags }
 
-output "var_sp_oid" { value = var.sp_oid}
+output "var_sp_oid" { value = var.sp_oid }

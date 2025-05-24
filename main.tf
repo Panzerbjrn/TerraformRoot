@@ -2,14 +2,14 @@ data "azurerm_client_config" "current" {}
 
 #Create Resource Group
 resource "azurerm_resource_group" "rg-1" {
-    name = join("-", [
+  name = join("-", [
     lower(var.env_data.company.short_name),
     lower(var.env_data.environment_name),
     lower(var.env_data.app.short_name),
     "rg1"
   ])
   location = var.env_data.location
-  tags = var.tags
+  tags     = var.tags
 }
 
 #Create Resource Group
@@ -22,7 +22,7 @@ resource "azurerm_resource_group" "ranged" {
     "foreach_rg-${each.key}"
   ])
   location = var.env_data.location
-  tags = var.tags
+  tags     = var.tags
 }
 
 # Grant KV admin at RG
@@ -30,7 +30,7 @@ resource "azurerm_role_assignment" "admin_role" {
   scope                = azurerm_resource_group.rg-1.id
   role_definition_name = "Key Vault Administrator"
   principal_id         = var.sp_oid
-#  principal_id         = "8c7fdad8-7c77-4b54-9261-202c989038f1"
+  #  principal_id         = "8c7fdad8-7c77-4b54-9261-202c989038f1"
 }
 
 module "Global" {
@@ -48,7 +48,7 @@ module "ResourceGroup" {
   resource_group = {
     name     = "Demo_Module-${var.env_data.app.short_name}-RG"
     location = var.env_data.location
-    tags = var.tags
+    tags     = var.tags
   }
 }
 
