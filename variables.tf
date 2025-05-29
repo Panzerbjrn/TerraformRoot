@@ -1,6 +1,13 @@
-#Set on command line:
 variable "region" { type = string }
-variable "sp_oid" { type = string }
+variable "sp_oid" {
+  type    = string
+  default = null
+}
+
+variable "app_oid" {
+  type    = string
+  default = null
+}
 
 #Other Vars
 variable "region_map" {
