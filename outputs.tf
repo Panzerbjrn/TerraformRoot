@@ -1,6 +1,6 @@
 output "JoinedValue" { value = local.JoinedValue }
 
-output "Module_Resource_Group" { value = module.ResourceGroup }
+#output "Module_Resource_Group" { value = module.ResourceGroup }
 
 #output "Module_Global" { value = module.Global }
 
@@ -11,8 +11,8 @@ output "data_current_tenant_id" { value = data.azurerm_client_config.current.ten
 
 
 
-output "resource_group_1" { value = azurerm_resource_group.rg-1 }
-output "resource_group_ranged" { value = azurerm_resource_group.ranged }
+#output "resource_group_1" { value = azurerm_resource_group.rg-1 }
+#output "resource_group_ranged" { value = azurerm_resource_group.ranged }
 
 
 output "var_env_data" { value = var.env_data }

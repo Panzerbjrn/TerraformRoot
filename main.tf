@@ -42,6 +42,13 @@ module "ResourceGroup_Ranged" {
 
   resource_group = {
     name     = "Demo_Module-${var.env_data.app.short_name}-foreach_rg-${each.key}"
+    name = join("-", [
+      "Demo_Module-",
+    lower(var.env_data.company.short_name),
+    lower(var.env_data.environment_name),
+    lower(var.env_data.app.short_name),
+    "foreach_rg-${each.key}"
+  ])
     location = var.env_data.location
     tags     = var.tags
   }
