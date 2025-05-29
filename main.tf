@@ -1,6 +1,6 @@
 data "azurerm_client_config" "current" {}
 
-#Create Resource Group
+#Create Resource Group Using Azure RM calls
 resource "azurerm_resource_group" "rg-1" {
   name = join("-", [
     lower(var.env_data.company.short_name),
@@ -12,9 +12,9 @@ resource "azurerm_resource_group" "rg-1" {
   tags     = var.tags
 }
 
-#Create Resource Group
+#Create Resource Group Using Azure RM calls and a range ForEach loop
 resource "azurerm_resource_group" "ranged" {
-  for_each = toset([for i in range(1, var.range + 1) : tostring(i)])
+  for_each = toset([for i in range(1, var.range + 2) : tostring(i)])
   name = join("-", [
     lower(var.env_data.company.short_name),
     lower(var.env_data.environment_name),
@@ -25,32 +25,33 @@ resource "azurerm_resource_group" "ranged" {
   tags     = var.tags
 }
 
-# Grant KV admin at RG
-resource "azurerm_role_assignment" "admin_role" {
-  scope                = azurerm_resource_group.rg-1.id
-  role_definition_name = "Key Vault Administrator"
-  principal_id         = var.sp_oid
-  #  principal_id         = "8c7fdad8-7c77-4b54-9261-202c989038f1"
-}
-
-module "Global" {
-  source             = "./modules/_global"
-  environment_name   = local.env_data.environment_name
-  location           = local.env_data.location_name
-  company_short_name = local.env_data.company.short_name
-  app_long_name      = local.env_data.app.long_name
-  app_short_name     = local.env_data.app.short_name
-}
-
+#Create Resource Group Using Module
 module "ResourceGroup" {
   source = "./modules/az_resource_group"
-
   resource_group = {
     name     = "Demo_Module-${var.env_data.app.short_name}-RG"
     location = var.env_data.location
     tags     = var.tags
   }
 }
+
+
+# # Grant KV admin at RG
+# resource "azurerm_role_assignment" "admin_role" {
+#   scope                = azurerm_resource_group.rg-1.id
+#   role_definition_name = "Key Vault Administrator"
+#   principal_id         = var.sp_oid
+#   #  principal_id         = "8c7fdad8-7c77-4b54-9261-202c989038f1"
+# }
+
+# module "Global" {
+#   source             = "./modules/_global"
+#   environment_name   = local.env_data.environment_name
+#   location           = local.env_data.location_name
+#   company_short_name = local.env_data.company.short_name
+#   app_long_name      = local.env_data.app.long_name
+#   app_short_name     = local.env_data.app.short_name
+# }
 
 ##### Testing
 ##### Testing AI Service:

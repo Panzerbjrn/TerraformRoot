@@ -3,10 +3,10 @@ locals {
   env_data = var.env_data
 
   location_map = {
-    eastus      = { name = "eastus", short_name = "ue1", long_name = "EastUS" }
-    northeurope = { name = "northeurope", short_name = "en1", long_name = "NorthEurope" }
+    eastus      = { name = "eastus", short_name = "ue", long_name = "EastUS" }
+    northeurope = { name = "northeurope", short_name = "en", long_name = "NorthEurope" }
     uksouth     = { name = "uksouth", short_name = "uks", long_name = "UKSouth" }
-    westeurope  = { name = "westeurope", short_name = "ew1", long_name = "WestEurope" }
+    westeurope  = { name = "westeurope", short_name = "ew", long_name = "WestEurope" }
   }
 
   environment_map = {
