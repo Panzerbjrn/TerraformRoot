@@ -26,10 +26,22 @@ resource "azurerm_resource_group" "ranged" {
 }
 
 #Create Resource Group Using Module
-module "ResourceGroup" {
+module "ResourceGroup_Single" {
   source = "./modules/az_resource_group"
   resource_group = {
     name     = "Demo_Module-${var.env_data.app.short_name}-RG"
+    location = var.env_data.location
+    tags     = var.tags
+  }
+}
+
+#Create Resource Group Using Module and a range ForEach loop
+module "ResourceGroup_Ranged" {
+  source = "./modules/az_resource_group"
+  for_each = toset([for i in range(1, var.range + 2) : tostring(i)])
+
+  resource_group = {
+    name     = "Demo_Module-${var.env_data.app.short_name}-foreach_rg-${each.key}"
     location = var.env_data.location
     tags     = var.tags
   }

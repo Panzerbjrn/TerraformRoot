@@ -24,8 +24,5 @@ provider "azurerm" {
       prevent_deletion_if_contains_resources = true
     }
 
-    subscription {
-      prevent_cancellation_on_destroy = true
-    }
   }
 }
