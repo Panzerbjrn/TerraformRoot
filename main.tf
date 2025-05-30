@@ -12,20 +12,7 @@ resource "azurerm_resource_group" "rg-1" {
   tags     = var.tags
 }
 
-# #Create Resource Group Using Azure RM calls and a range ForEach loop
-# resource "azurerm_resource_group" "ranged" {
-#   for_each = toset([for i in range(1, var.range + 2) : tostring(i)])
-#   name = join("-", [
-#     lower(var.env_data.company.short_name),
-#     lower(var.env_data.environment_name),
-#     lower(var.env_data.app.short_name),
-#     "foreach_rg-${each.key}"
-#   ])
-#   location = var.env_data.location
-#   tags     = var.tags
-# }
-
-#Create Resource Group Using Module
+#Create Single Resource Group Using Module
 module "ResourceGroup_Single" {
   source = "./modules/az_resource_group"
   resource_group = {
@@ -35,21 +22,20 @@ module "ResourceGroup_Single" {
   }
 }
 
-# #Create Resource Group Using Module and a range ForEach loop
-# module "ResourceGroup_Ranged" {
-#   source = "./modules/az_resource_group"
-#   for_each = toset([for i in range(1, var.range + 2) : tostring(i)])
+#Create Resource Group Using Module and a range loop
+module "ResourceGroup_Ranged" {
+  source = "./modules/az_resource_group"
+  for_each = toset([for i in range(1, var.range + 1) : tostring(i)])
 
-#   resource_group = {
-#     #name     = "Demo_Module-${var.env_data.app.short_name}-foreach_rg-${each.key}"
-#     name = join("-", [
-#       "Demo_Module",
-#     lower(var.env_data.company.short_name),
-#     lower(var.env_data.environment_name),
-#     lower(var.env_data.app.short_name),
-#     "foreach_rg-${each.key}"
-#   ])
-#     location = var.env_data.location
-#     tags     = var.tags
-#   }
-# }
+  resource_group = {
+    name = join("-", [
+      "Demo_Module",
+    lower(var.env_data.company.short_name),
+    lower(var.env_data.environment_name),
+    lower(var.env_data.app.short_name),
+    "foreach_rg-${each.key}"
+  ])
+    location = var.env_data.location
+    tags     = var.tags
+  }
+}
