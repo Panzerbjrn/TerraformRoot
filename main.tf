@@ -41,9 +41,9 @@ module "ResourceGroup_Ranged" {
   for_each = toset([for i in range(1, var.range + 2) : tostring(i)])
 
   resource_group = {
-    name     = "Demo_Module-${var.env_data.app.short_name}-foreach_rg-${each.key}"
+    #name     = "Demo_Module-${var.env_data.app.short_name}-foreach_rg-${each.key}"
     name = join("-", [
-      "Demo_Module-",
+      "Demo_Module",
     lower(var.env_data.company.short_name),
     lower(var.env_data.environment_name),
     lower(var.env_data.app.short_name),
