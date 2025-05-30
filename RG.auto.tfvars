@@ -1,4 +1,4 @@
-RGs = [
+RG_Map = [
     {
         name = "rg-01"
         location = "eastus"

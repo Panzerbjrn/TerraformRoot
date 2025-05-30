@@ -41,7 +41,7 @@ variable "range" {
 }
 
 #From TFVARS files
-variable "RGs" {
+variable "RG_Map" {
   description = "Resource Groups to create"
   type        = map(object({
     name     = string
