@@ -39,3 +39,19 @@ module "ResourceGroup_Ranged" {
     tags     = var.tags
   }
 }
+
+#Create Resource Group Using Module and a ForEach loop
+module "ResourceGroup_Ranged" {
+  source = "./modules/az_resource_group"
+  for_each = { for k, v in(var.RGs) : join("-", [
+    lower(var.env_data.company.short_name),
+    lower(var.env_data.environment_name),
+    lower(var.env_data.app.short_name),
+    v.name
+  ]) => v }
+
+  location = each.value
+  tags     = each.value
+}
+
+
