@@ -1,4 +1,8 @@
-variable "region" { type = string }
+variable "region" {
+  type    = string
+  default = "eu"
+}
+
 variable "sp_oid" {
   type    = string
   default = null
