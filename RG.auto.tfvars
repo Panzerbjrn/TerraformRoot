@@ -1,7 +1,9 @@
 RGs = [
     {
         name = "rg-01"
-        location = "eastus"
+        function = "prd"
+        instance_id = "01"
+        location = "northeurope"
         tags = {
             environment = "production"
             owner       = "team-a"
@@ -9,7 +11,9 @@ RGs = [
     },
     {
         name = "rg-02"
-        location = "westus"
+        function = "bak"
+        instance_id = "02"
+        location = "westeurope"
         tags = {
             environment = "staging"
             owner       = "team-b"
@@ -17,7 +21,9 @@ RGs = [
     },
     {
         name = "rg-03"
-        location = "centralus"
+        function = "dev"
+        instance_id = "03"
+        location = "europe"
         tags = {
             environment = "development"
             owner       = "team-c"
