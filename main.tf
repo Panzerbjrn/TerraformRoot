@@ -50,8 +50,8 @@ module "ResourceGroup_Ranged" {
     v.name
   ]) => v }
 
-  location = each.value
-  tags     = each.value
+  location = each.value.location
+  tags     = each.value.tags
 }
 
 
