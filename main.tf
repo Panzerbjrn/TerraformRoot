@@ -50,8 +50,10 @@ module "ResourceGroup_ForEach" {
     v.name
   ]) => v }
 
-  location = each.value.location
-  tags     = each.value.tags
+  resource_group = each.value
+  
+  #location = each.value.location
+  #tags     = each.value.tags
 }
 
 
