@@ -33,7 +33,7 @@ module "ResourceGroup_Ranged" {
       lower(var.env_data.company.short_name),
       lower(var.env_data.environment_name),
       lower(var.env_data.app.short_name),
-      "foreach_rg-${each.key}"
+      "ranged_rg-${each.key}"
     ])
     location = var.env_data.location
     tags     = var.tags
@@ -61,7 +61,13 @@ module "ResourceGroup_ForEach" {
   for_each = { for rg in var.RG_Map : rg.name => rg }
 
   resource_group = {
-    name     = each.value.name
+    name = join("-", [
+      "Demo_Module",
+      lower(var.env_data.company.short_name),
+      lower(var.env_data.environment_name),
+      lower(var.env_data.app.short_name),
+      "foreach_rg-${each.value.name}"
+    ])
     location = each.value.location
     tags     = each.value.tags
   }
