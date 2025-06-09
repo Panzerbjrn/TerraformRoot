@@ -24,24 +24,24 @@ module "ResourceGroup_Single" {
 
 #Create Resource Group Using Module and a range loop
 module "ResourceGroup_Ranged" {
-  source = "./modules/az_resource_group"
+  source   = "./modules/az_resource_group"
   for_each = toset([for i in range(1, var.range + 1) : tostring(i)])
 
   resource_group = {
     name = join("-", [
       "Demo_Module",
-    lower(var.env_data.company.short_name),
-    lower(var.env_data.environment_name),
-    lower(var.env_data.app.short_name),
-    "foreach_rg-${each.key}"
-  ])
+      lower(var.env_data.company.short_name),
+      lower(var.env_data.environment_name),
+      lower(var.env_data.app.short_name),
+      "foreach_rg-${each.key}"
+    ])
     location = var.env_data.location
     tags     = var.tags
   }
 }
 
 #Create Resource Group Using Module and a ForEach loop
-module "ResourceGroup_Ranged" {
+module "ResourceGroup_ForEach" {
   source = "./modules/az_resource_group"
   for_each = { for k, v in(var.RGs) : join("-", [
     lower(var.env_data.company.short_name),

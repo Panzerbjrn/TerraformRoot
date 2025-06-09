@@ -43,10 +43,10 @@ variable "range" {
 #From TFVARS files
 variable "RG_Map" {
   description = "Resource Groups to create"
-  type        = map(object({
+  type = map(object({
     name     = string
     location = string
     tags     = map(string)
   }))
-  default     = {}
+  default = {}
 }
