@@ -41,13 +41,13 @@ module "ResourceGroup_Ranged" {
 }
 
 module "ResourceGroup_ForEach" {
-  source   = "./modules/az_resource_group"
+  source = "./modules/az_resource_group"
   for_each = { for k, rg in var.RG_Map : join("-", [
     lower(var.env_data.company.short_name),
     lower(var.env_data.environment_name),
     lower(var.env_data.app.short_name),
     rg.name
-    ]) => rg }
+  ]) => rg }
 
   resource_group = {
     name = join("-", [
