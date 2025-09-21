@@ -62,3 +62,15 @@ module "ResourceGroup_ForEach" {
     tags     = each.value.tags
   }
 }
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-bucket-name-${random_id.suffix.hex}" # Must be globally unique
+}
+
+resource "random_id" "suffix" {
+  byte_length = 4
+}
+
+output "bucket_name" {
+  value = aws_s3_bucket.my_bucket.bucket
+}
