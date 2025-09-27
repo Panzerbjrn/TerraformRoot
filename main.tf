@@ -74,3 +74,13 @@ resource "random_id" "suffix" {
 output "bucket_name" {
   value = aws_s3_bucket.my_bucket.bucket
 }
+
+data "aws_region" "current" {}
+output "aws_region" {
+  value = data.aws_region.current.name
+}
+
+data "aws_caller_identity" "current" {}
+output "aws_account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
