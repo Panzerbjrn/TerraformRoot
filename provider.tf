@@ -24,5 +24,5 @@ provider "azurerm" {
       prevent_deletion_if_contains_resources = true
     }
   }
-  skip_provider_registration = true
+  resource_provider_registrations = "none"
 }
